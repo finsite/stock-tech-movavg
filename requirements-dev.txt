@@ -1,0 +1,8 @@
+# Testing
+pytest>=7.4.0
+pytest-mock>=3.10.0
+pytest-cov>=4.1.0  # Test coverage reporting
+tox>=4.10.0  # Multi-environment testing
+
+# Pre-commit (Only the manager, not the individual hooks)
+pre-commit>=3.4.0

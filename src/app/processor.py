@@ -1,13 +1,17 @@
 """
 Processes stock data by applying moving averages.
 """
+
 import pandas as pd
 from moving_avg import calculate_moving_average
 from logger import setup_logger
 
 logger = setup_logger()
 
-def process_stock_data(data: pd.DataFrame, window: int, method: str = "sma") -> pd.DataFrame:
+
+def process_stock_data(
+    data: pd.DataFrame, window: int, method: str = "sma"
+) -> pd.DataFrame:
     """
     Applies the chosen moving average method to stock data.
 
@@ -17,7 +21,9 @@ def process_stock_data(data: pd.DataFrame, window: int, method: str = "sma") -> 
     :return: DataFrame with moving average column added
     """
     try:
-        data[f"{method.upper()}_{window}"] = calculate_moving_average(data["Close"], window, method)
+        data[f"{method.upper()}_{window}"] = calculate_moving_average(
+            data["Close"], window, method
+        )
         logger.info(f"Successfully calculated {method.upper()} for window {window}.")
         return data
     except Exception as e:

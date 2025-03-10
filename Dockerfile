@@ -25,5 +25,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application source code
 COPY . .
 
+# Set required environment variables (modify if needed)
+ENV RABBITMQ_HOST="rabbitmq" \
+    RABBITMQ_EXCHANGE="stock_exchange" \
+    RABBITMQ_ROUTING_KEY="moving_avg" \
+    AWS_REGION="us-east-1" \
+    AWS_SQS_QUEUE_URL=""
+
 # Define the default command (modify as needed)
 CMD ["python", "-m", "src.app"]

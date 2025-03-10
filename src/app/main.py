@@ -1,37 +1,32 @@
-from typing import Any  # ✅ Fixes the error
+"""
+Entry point for Stock-Tech-MovAvg.
+Loads stock data, calculates moving averages, and publishes results.
+"""
+
+import pandas as pd
+from processor import process_stock_data
+from queue_sender import publish_to_queue
 
 
-def add_numbers(a: int | float, b: int | float) -> int | float:
+def main():
     """
-    Adds two numbers and returns the result.
-
-    Args:
-        a (Union[int, float]): The first number.
-        b (Union[int, float]): The second number.
-
-    Returns:
-        Union[int, float]: The sum of the two numbers.
+    Main function that loads stock data, applies moving averages, and publishes results.
     """
-    return a + b
+    stock_data = pd.DataFrame(
+        {
+            "Date": pd.date_range(start="2024-01-01", periods=10, freq="D"),
+            "Close": [100, 102, 101, 103, 105, 107, 106, 108, 110, 112],
+        }
+    )
+
+    ma_type = "sma"
+    window = 3
+
+    processed_data = process_stock_data(stock_data, window, ma_type)
+
+    if processed_data is not None:
+        publish_to_queue(processed_data.to_dict(orient="records"))
 
 
-class ExampleClass:
-    """A simple example class."""
-
-    def __init__(self, value: Any):
-        """
-        Initializes ExampleClass.
-
-        Args:
-            value (Any): The value to store.
-        """
-        self.value = value
-
-    def get_value(self) -> Any:
-        """
-        Retrieve the value assigned to the object.
-
-        Returns:
-            Any: The stored value.
-        """
-        return self.value
+if __name__ == "__main__":
+    main()

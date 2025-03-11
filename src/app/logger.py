@@ -9,6 +9,7 @@ import os
 LOG_DIR = "logs"
 LOG_FILE = os.path.join(LOG_DIR, "stock-tech-movavg.log")
 
+
 def setup_logger():
     """
     Sets up a logger for the application with console and file handlers.

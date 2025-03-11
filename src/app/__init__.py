@@ -1,13 +1,9 @@
-"""
-Stock-Tech-MovAvg Repository Structure
-"""
+import logging  # ✅ Moved to the top
 
-# src/app/__init__.py
+logging.basicConfig(level=logging.INFO)
+
 """
 Stock-Tech-MovAvg: Moving Average Analysis Module
 """
-import logging
-
-logging.basicConfig(level=logging.INFO)
 
 __version__ = "0.1.0"

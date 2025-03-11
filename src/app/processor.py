@@ -39,6 +39,7 @@ from src.app.logger import setup_logger  # ✅ Fixed import
 
 logger = setup_logger()
 
+
 def process_stock_data(
     data: pd.DataFrame, window: int, method: str = "sma"
 ) -> pd.DataFrame:

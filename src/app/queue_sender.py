@@ -1,23 +1,28 @@
 """
 Handles message queue interactions for RabbitMQ and SQS.
-"""
 
-import os
-import pika
+This module provides functions to send data to RabbitMQ and SQS message queues.
+"""
 import boto3
 import json
+import os
+import pika
 
-# from logger import setup_logger
+
 from src.app.logger import setup_logger
 
 logger = setup_logger()
 
-sqs_client = boto3.client("sqs", region_name=os.getenv("AWS_REGION", "us-east-1"))
+SQS_CLIENT = boto3.client(
+    "sqs", region_name=os.getenv("AWS_REGION", "us-east-1")
+)
 
 
-def send_to_rabbitmq(data: dict):
+def send_to_rabbitmq(data: dict) -> None:
     """
     Sends data to RabbitMQ.
+
+    :param data: Dictionary containing data to be sent to RabbitMQ
     """
     try:
         connection = pika.BlockingConnection(
@@ -29,20 +34,22 @@ def send_to_rabbitmq(data: dict):
             routing_key=os.getenv("RABBITMQ_ROUTING_KEY", "moving_avg"),
             body=json.dumps(data),
         )
-        logger.info("Published data to RabbitMQ")
         connection.close()
     except Exception as e:
         logger.error(f"Failed to send data to RabbitMQ: {e}")
 
 
-def send_to_sqs(data: dict):
+def send_to_sqs(data: dict) -> None:
     """
     Sends data to AWS SQS.
+
+    :param data: Dictionary containing data to be sent to SQS
     """
     try:
-        response = sqs_client.send_message(
+        response = SQS_CLIENT.send_message(
             QueueUrl=os.getenv("AWS_SQS_QUEUE_URL", ""), MessageBody=json.dumps(data)
         )
         logger.info(f"Published data to SQS, MessageId: {response['MessageId']}")
     except Exception as e:
         logger.error(f"Failed to send data to SQS: {e}")
+

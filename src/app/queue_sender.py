@@ -6,7 +6,8 @@ import os
 import pika
 import boto3
 import json
-from logger import setup_logger
+#from logger import setup_logger
+from src.app.logger import setup_logger
 
 logger = setup_logger()
 

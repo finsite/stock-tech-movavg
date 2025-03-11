@@ -122,7 +122,7 @@
 #     main()
 import os
 import argparse
-from typing import Dict
+
 
 def parse_arguments() -> argparse.Namespace:
     """
@@ -145,6 +145,7 @@ def parse_arguments() -> argparse.Namespace:
     )
     return parser.parse_args()
 
+
 def create_directories() -> None:
     """
     Ensure necessary directories exist.
@@ -155,7 +156,8 @@ def create_directories() -> None:
     os.makedirs("helm/templates", exist_ok=True)
     os.makedirs(".github/workflows", exist_ok=True)
 
-def get_env_values(repository_name: str, environment: str) -> Dict[str, str | int]:
+
+def get_env_values(repository_name: str, environment: str) -> dict[str, str | int]:
     """
     Define environment-specific values.
 
@@ -173,7 +175,10 @@ def get_env_values(repository_name: str, environment: str) -> Dict[str, str | in
         "rabbitmq_queue": f"{repository_name}_{environment}_queue",
     }
 
-def generate_files(repository_name: str, environment: str, env_values: Dict[str, str | int]) -> Dict[str, str]:
+
+def generate_files(
+    repository_name: str, environment: str, env_values: dict[str, str | int]
+) -> dict[str, str]:
     """
     Generate Kubernetes and Helm configuration files.
 
@@ -252,7 +257,8 @@ environment:
     }
     return files
 
-def write_files(files: Dict[str, str]) -> None:
+
+def write_files(files: dict[str, str]) -> None:
     """
     Write generated files to disk.
 
@@ -263,11 +269,12 @@ def write_files(files: Dict[str, str]) -> None:
         with open(filename, "w") as f:
             f.write(content)
 
+
 def main() -> None:
     """
     Main function to run the script.
 
-    Parses command-line arguments, generates Kubernetes and Helm configuration files, 
+    Parses command-line arguments, generates Kubernetes and Helm configuration files,
     and writes them to disk.
     """
     args = parse_arguments()
@@ -276,7 +283,10 @@ def main() -> None:
     files = generate_files(args.repository_name, args.environment, env_values)
     write_files(files)
 
-    print(f"✅ Kubernetes, Helm, and ArgoCD files generated for {args.repository_name} (Environment: {args.environment})")
+    print(
+        f"✅ Kubernetes, Helm, and ArgoCD files generated for {args.repository_name} (Environment: {args.environment})"
+    )
+
 
 if __name__ == "__main__":
     main()

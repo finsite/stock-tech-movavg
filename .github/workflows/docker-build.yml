@@ -5,8 +5,8 @@ on:
       - main
   workflow_dispatch:
 permissions:
-  contents: read # Required to access repository contents
-  packages: write # Required to push Docker images to the GitHub Container Registry
+  contents: read 
+  packages: write 
 jobs:
   build:
     runs-on: ubuntu-latest

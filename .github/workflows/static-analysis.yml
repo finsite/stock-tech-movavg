@@ -1,4 +1,4 @@
-name: Static Analysis
+name: Static Analysis with Pylint
 on: [push, pull_request]
 jobs:
   static-analysis:

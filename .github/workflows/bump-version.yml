@@ -1,4 +1,4 @@
-name: Bump version
+name: Bump My Version
 on:
   workflow_dispatch:
     inputs:

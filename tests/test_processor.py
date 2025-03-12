@@ -5,28 +5,31 @@ Unit tests for stock data processing.
 import os
 import sys
 import pandas as pd
+import pytest
 
 # Ensure `src` is in the import path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
-from src.app.processor import process_stock_data  # ✅ Fixed import
+from src.app.processor import process_stock_data  # ✅ Fixed function name
 
 
 def test_process_stock_data():
     """
-    Test the stock data processing function.
+    Test stock data processing function with moving averages.
     """
-    data = pd.DataFrame({"Close": [1, 2, 3, 4, 5]})
-    window = 3
-    method = "sma"
-    result = process_stock_data(data, window=window, method=method)
+    stock_data = pd.DataFrame({"Close": [100, 102, 104, 106, 108]})
+    window_size = 3
+    ma_method = "sma"
+    expected_column = f"{ma_method.upper()}_{window_size}"
 
-    assert result is not None, "Processing failed"
-    assert isinstance(result, pd.DataFrame), "Processed result is not a DataFrame"
+    result = process_stock_data(stock_data, window_size, ma_method)
 
-    # Generate expected column name dynamically
-    expected_column = f"{method.upper()}_{window}"
+    # ✅ Using `pytest.fail()` to verify conditions, avoiding Bandit B101
+    if result is None:
+        pytest.fail("Processing failed")
 
-    assert (
-        expected_column in result.columns
-    ), f"Processed result missing '{expected_column}' column"
+    if not isinstance(result, pd.DataFrame):
+        pytest.fail("Processed result is not a DataFrame")
+
+    if expected_column not in result.columns:
+        pytest.fail(f"Processed result missing '{expected_column}' column")

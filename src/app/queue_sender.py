@@ -3,6 +3,7 @@ Handles message queue interactions for RabbitMQ and SQS.
 
 This module provides functions to send data to RabbitMQ and SQS message queues.
 """
+
 import boto3
 import json
 import os
@@ -13,9 +14,7 @@ from src.app.logger import setup_logger
 
 logger = setup_logger()
 
-SQS_CLIENT = boto3.client(
-    "sqs", region_name=os.getenv("AWS_REGION", "us-east-1")
-)
+SQS_CLIENT = boto3.client("sqs", region_name=os.getenv("AWS_REGION", "us-east-1"))
 
 
 def send_to_rabbitmq(data: dict) -> None:
@@ -52,4 +51,3 @@ def send_to_sqs(data: dict) -> None:
         logger.info(f"Published data to SQS, MessageId: {response['MessageId']}")
     except Exception as e:
         logger.error(f"Failed to send data to SQS: {e}")
-

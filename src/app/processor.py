@@ -8,6 +8,7 @@ from src.app.logger import setup_logger
 
 logger = setup_logger()
 
+
 def process_stock_data(
     stock_data: pd.DataFrame, window_size: int, ma_method: str = "sma"
 ) -> pd.DataFrame:
@@ -32,4 +33,3 @@ def process_stock_data(
     except Exception as error:
         logger.error(f"Error in processing stock data: {error}")
         return pd.DataFrame()
-

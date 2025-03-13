@@ -4,7 +4,7 @@ repos:
     rev: "v5.0.0"
     hooks:
       - id: check-yaml
-        exclude: "helm/templates/.*\\.yaml" # Skip Helm YAML templates
+        #exclude: "helm/templates/.*\\.yaml" # Skip Helm YAML templates
       - id: check-json
       - id: detect-private-key
       - id: check-added-large-files
@@ -12,6 +12,13 @@ repos:
       - id: debug-statements
       - id: check-merge-conflict
       - id: check-executables-have-shebangs
+
+  #spelling chek
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args: ["--ignore-words-list", "hte"]
 
   # ✅ Autoformatting (Black)
   - repo: https://github.com/psf/black
@@ -21,17 +28,11 @@ repos:
 
   # ✅ Linting & Auto-Fixes (Ruff) - Replaces Flake8, Isort, and Pylint
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.9
+    rev: v0.9.10
     hooks:
       - id: ruff
         args: [--fix]
         types: [python]
-
-  # ✅ Type Checking (Mypy)
-  # - repo: https://github.com/pre-commit/mirrors-mypy
-  #   rev: "v1.15.0"
-  #   hooks:
-  #     - id: mypy
 
   # ✅ Security Linter for Python Code (Bandit) - Now Scans Tests Too
   - repo: https://github.com/PyCQA/bandit
@@ -47,7 +48,7 @@ repos:
     hooks:
       - id: pip-audit
         name: pip-audit
-        entry: pip-audit --requirement requirements.txt
+        entry: pip-audit --requirement requirements.txt --requirement requirements-dev.txt
         language: system
         types: [python]
         pass_filenames: false
@@ -78,16 +79,6 @@ repos:
         language: system
         files: Dockerfile
 
-  #   # ✅ Docker Security Scanner (Trivy)
-  # - repo: local
-  #   hooks:
-  #     - id: trivy
-  #       name: Trivy Docker Security Scan
-  #       entry: bash -c 'IMAGE=$(docker images --format "{{.Repository}}:{{.Tag}}" | head -n 1); if [ -n "$IMAGE" ]; then trivy image --severity HIGH,CRITICAL "$IMAGE"; else echo "No image found. Skipping Trivy."; fi'
-  #       language: system
-  #       pass_filenames: false
-  #       always_run: true
-
   # ✅ Shell Script Linter (ShellCheck)
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: "v0.10.0"
@@ -97,11 +88,18 @@ repos:
         language: system
 
   # ✅ Prettier for Markdown, YAML, and JSON Formatting
+  # - repo: https://github.com/pre-commit/mirrors-prettier
+  #   rev: "v4.0.0-alpha.8"
+  #   hooks:
+  #     - id: prettier
+  #       args: ["--print-width", "80"]
+  #       additional_dependencies: ["prettier@latest"]
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: "v4.0.0-alpha.8"
     hooks:
       - id: prettier
-        args: ["--print-width", "80"]
+        args:
+          ["--print-width", "80", "--write", "**/*.{json,yml,yaml,md,html,css}"]
         additional_dependencies: ["prettier@latest"]
 
   # ✅ Sphinx Documentation Validation
@@ -116,7 +114,7 @@ repos:
 
   # ✅ Conventional Commits Linter (Commitizen)
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: "v3.12.0"
+    rev: "v4.4.1"
     hooks:
       - id: commitizen
         name: Commitizen Conventional Commit Linter
@@ -124,19 +122,11 @@ repos:
         language: python # ✅ Uses Python environment
         stages: [commit-msg] # ✅ This is the correct field
 
-
-  # ✅ Docstring Validation (Darglint)
-  # - repo: https://github.com/terrencepreilly/darglint
-  #   rev: "v1.8.1"
-  #   hooks:
-  #     - id: darglint
-  #       args: ["--verbosity", "2"]
-
   # # ✅ Run Tests (Pytest)
-  # - repo: local
-  #   hooks:
-  #     - id: pytest
-  #       name: Run tests before commit
-  #       entry: pytest
-  #       language: system
-  #       pass_filenames: false
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run tests before commit
+        entry: pytest tests --maxfail=3 --disable-warnings -q
+        language: system
+        pass_filenames: false

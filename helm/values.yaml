@@ -1,0 +1,17 @@
+replicaCount: 1
+
+image:
+  repository: your-registry/stock-tech-movag
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+
+environment:
+  ENVIRONMENT: "dev"
+  LOG_LEVEL: "DEBUG"
+  RABBITMQ_HOST: "stock-tech-movag-rabbitmq.dev.internal"
+  RABBITMQ_QUEUE: "stock-tech-movag_dev_queue"

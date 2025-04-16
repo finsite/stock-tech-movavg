@@ -4,15 +4,16 @@ Unit tests for moving average calculations.
 
 import os
 import sys
+
 import pandas as pd
 import pytest
 
 # Ensure `src` is in the import path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
-from src.app.moving_avg import (
+from src.app.moving_avg import (  # ✅ Import the actual function being tested
     calculate_moving_average,
-)  # ✅ Import the actual function being tested
+)
 
 
 @pytest.mark.parametrize("method", ["sma", "ema", "wma", "hma"])

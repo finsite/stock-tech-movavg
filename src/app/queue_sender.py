@@ -1,14 +1,13 @@
-"""
-Handles message queue interactions for RabbitMQ and SQS.
+"""Handles message queue interactions for RabbitMQ and SQS.
 
 This module provides functions to send data to RabbitMQ and SQS message queues.
 """
 
-import boto3
 import json
 import os
-import pika
 
+import boto3
+import pika
 
 from src.app.logger import setup_logger
 
@@ -18,8 +17,7 @@ SQS_CLIENT = boto3.client("sqs", region_name=os.getenv("AWS_REGION", "us-east-1"
 
 
 def send_to_rabbitmq(data: dict) -> None:
-    """
-    Sends data to RabbitMQ.
+    """Sends data to RabbitMQ.
 
     :param data: Dictionary containing data to be sent to RabbitMQ
     """
@@ -39,8 +37,7 @@ def send_to_rabbitmq(data: dict) -> None:
 
 
 def send_to_sqs(data: dict) -> None:
-    """
-    Sends data to AWS SQS.
+    """Sends data to AWS SQS.
 
     :param data: Dictionary containing data to be sent to SQS
     """

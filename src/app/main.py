@@ -1,5 +1,4 @@
-"""
-Entry point for Stock-Tech-MovAvg.
+"""Entry point for Stock-Tech-MovAvg.
 Loads stock data, calculates moving averages, and publishes results.
 """
 
@@ -9,8 +8,7 @@ from queue_sender import publish_to_queue
 
 
 def main():
-    """
-    Main function that loads stock data, applies moving averages, and publishes results.
+    """Main function that loads stock data, applies moving averages, and publishes results.
     """
     stock_data = pd.DataFrame(
         {

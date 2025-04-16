@@ -4,6 +4,7 @@ Unit tests for queue handling.
 
 import os
 import sys
+
 import pytest
 
 # Ensure `src` is in the import path

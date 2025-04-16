@@ -8,8 +8,7 @@ from queue_sender import publish_to_queue
 
 
 def main():
-    """Main function that loads stock data, applies moving averages, and publishes results.
-    """
+    """Main function that loads stock data, applies moving averages, and publishes results."""
     stock_data = pd.DataFrame(
         {
             "Date": pd.date_range(start="2024-01-01", periods=10, freq="D"),

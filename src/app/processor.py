@@ -1,5 +1,4 @@
-"""Module to process stock data by applying moving averages.
-"""
+"""Module to process stock data by applying moving averages."""
 
 import pandas as pd
 

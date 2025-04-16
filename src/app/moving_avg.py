@@ -1,5 +1,4 @@
-"""Module for calculating different types of moving averages.
-"""
+"""Module for calculating different types of moving averages."""
 
 import numpy as np
 import pandas as pd

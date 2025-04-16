@@ -1,5 +1,4 @@
-"""Logger setup for Stock-Tech-MovAvg module.
-"""
+"""Logger setup for Stock-Tech-MovAvg module."""
 
 import logging
 import os

@@ -1,35 +1,39 @@
-"""Module to handle output of moving average analysis to various targets.
+"""
+Module to handle output of analysis results to a chosen output target.
+
+This implementation logs the result and prints it to stdout.
 """
 
 import json
-from typing import Any
 
-from .logger import setup_logger
+from app.logger import setup_logger
 
 # Initialize logger
 logger = setup_logger(__name__)
 
 
-def send_to_output(data: dict[str, Any]) -> None:
-    """Outputs processed moving average analysis to a chosen output target.
+def send_to_output(data: dict[str, any]) -> None:
+    """
+    Outputs processed analysis results to the configured output.
+
+    Currently logs the output and prints it to the console.
+    This function can be extended to push to a database, file, or external service.
 
     Args:
     ----
-        data (dict[str, Any]): The processed moving average analysis data.
+        data (dict[str, any]): The processed analysis result as a dictionary.
 
     Returns:
     -------
         None
-
     """
     try:
-        # Convert to JSON for output
         formatted_output: str = json.dumps(data, indent=4)
 
-        # Log the output
-        logger.info("Sending data to output: \n%s", formatted_output)
+        # Log output
+        logger.info("Sending data to output:\n%s", formatted_output)
 
-        # TODO: Replace this with actual output target (e.g., database, cloud storage)
+        # Print output to console (placeholder for future integration)
         print(formatted_output)
 
     except Exception as e:

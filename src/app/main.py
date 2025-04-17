@@ -1,28 +1,31 @@
-"""Entry point for Stock-Tech-MovAvg.
-Loads stock data, calculates moving averages, and publishes results.
+"""Main entry point for Stock-Tech-MovAvg.
+
+This script consumes stock data from the queue, applies moving average analysis,
+and publishes the results back to the output queue.
 """
 
-import pandas as pd
-from processor import process_stock_data
-from queue_sender import publish_to_queue
+import os
+import sys
+
+# Ensure src/ is in path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from app.logger import setup_logger
+from app.queue_handler import consume_messages
+
+# Initialize logger
+logger = setup_logger(__name__)
 
 
-def main():
-    """Main function that loads stock data, applies moving averages, and publishes results."""
-    stock_data = pd.DataFrame(
-        {
-            "Date": pd.date_range(start="2024-01-01", periods=10, freq="D"),
-            "Close": [100, 102, 101, 103, 105, 107, 106, 108, 110, 112],
-        }
-    )
+def main() -> None:
+    """Entry point of the Moving Average Analysis Service.
 
-    ma_type = "sma"
-    window = 3
-
-    processed_data = process_stock_data(stock_data, window, ma_type)
-
-    if processed_data is not None:
-        publish_to_queue(processed_data.to_dict(orient="records"))
+    This function starts the service to consume stock data messages from
+    the configured queue, process the data using the selected moving average
+    technique, and publish the results.
+    """
+    logger.info("Starting Moving Average Analysis Service...")
+    consume_messages()
 
 
 if __name__ == "__main__":

@@ -1,37 +1,43 @@
-"""Logger setup for Stock-Tech-MovAvg module."""
+"""Module to handle logging.
+
+This module provides a function to set up a logger with the specified name.
+The logger will be configured to output messages to the console with a
+specific format and log level.
+"""
 
 import logging
-import os
-import sys
-
-LOG_DIR = "logs"
-LOG_FILE = os.path.join(LOG_DIR, "stock-tech-movavg.log")
 
 
-def setup_logger():
-    """Sets up a logger for the application with console and file handlers.
+def setup_logger(name: str = "app") -> logging.Logger:
+    """Sets up a logger with the specified name.
 
-    :return: Configured logger instance
+    If a logger with the same name already exists, it will be reused.
+    Otherwise, a new logger will be created with the specified name.
+
+    The logger will be configured to output messages to the console
+    with the following format:
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+    The log level will be set to INFO.
+
+    Args:
+    ----
+        name (str): The name of the logger. Defaults to "app".
+
+    Returns:
+    -------
+        logging.Logger: The configured logger.
+
     """
-    # Ensure logs directory exists
-    if not os.path.exists(LOG_DIR):
-        os.makedirs(LOG_DIR)
+    logger: logging.Logger = logging.getLogger(name)
 
-    logger = logging.getLogger("stock-tech-movavg")
-    logger.setLevel(logging.DEBUG)
-
-    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-
-    # Console handler
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-
-    # File handler
-    file_handler = logging.FileHandler(LOG_FILE)
-    file_handler.setLevel(logging.DEBUG)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+    if not logger.hasHandlers():
+        handler: logging.StreamHandler = logging.StreamHandler()
+        formatter: logging.Formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        logger.setLevel(logging.INFO)
 
     return logger

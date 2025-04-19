@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stock-tech-movavg
+spec:
+  selector:
+    app: stock-tech-movavg
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

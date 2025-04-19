@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-tech-movavg
+  labels:
+    app: stock-tech-movavg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-tech-movavg
+  template:
+    metadata:
+      labels:
+        app: stock-tech-movavg
+    spec:
+      containers:
+        - name: stock-tech-movavg
+          image: stock-tech-movavg:latest
+          ports:
+            - containerPort: 8080

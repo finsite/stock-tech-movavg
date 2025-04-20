@@ -50,7 +50,7 @@ bump-my-version==0.33.0      # Automated version bumping
 # ======================
 # Git & Dev tooling
 # ======================
-pre-commit==4.0.1            # Git hook manager
+pre-commit==4.2.0            # Git hook manager
 
 # ======================
 # Docker (optional)

@@ -15,7 +15,7 @@ flake8-docstrings==1.7.0     # Enforce docstring conventions (PEP257)
 pylint==3.3.6                # Deeper code analysis
 mypy==1.15.0                  # Static type checking
 black==25.1.0                # Code formatter
-isort==5.13.2                # Import sorter
+isort==6.0.1                # Import sorter
 
 # Modern replacement for flake8 + black + isort
 ruff==0.11.6                  # Fast all-in-one linter/formatter (CI-friendly)

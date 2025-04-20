@@ -28,7 +28,7 @@ xenon==0.9.3                 # Enforce maximum code complexity
 # ======================
 # Security tools
 # ======================
-bandit==1.7.5                # Scans for security issues in Python code
+bandit==1.8.3                # Scans for security issues in Python code
 safety==3.2.11               # Checks dependencies for known vulnerabilities
 
 # ======================

@@ -1,7 +1,7 @@
 # ======================
 # Core testing tools
 # ======================
-pytest==7.4.4                # Unit and integration testing
+pytest==8.3.5                # Unit and integration testing
 pytest-cov==6.1.1            # Coverage reporting
 pytest-benchmark==4.0.0      # Performance benchmarking
 pytest-html==4.1.1           # Optional: HTML test reports

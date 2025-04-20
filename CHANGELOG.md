@@ -1,7 +1,9 @@
 ## Changelog
 
-- Merge pull request #12 from finsite/renovate/xenon-0.x (Mark)
-- Merge pull request #11 from finsite/renovate/types-pyyaml-6.x (Mark)
-- chore(deps): update dependency xenon to v0.9.3 (renovate[bot])
-- chore(deps): update dependency types-pyyaml to v6.0.12.20250402 (renovate[bot])
+- Merge pull request #15 from finsite/renovate/bump-my-version-0.x (Mark)
+- Merge pull request #14 from finsite/renovate/black-24.x (Mark)
+- Merge pull request #13 from finsite/renovate/bandit-1.x (Mark)
 - bump: patch version + changelog [skip ci] (github-actions[bot])
+- chore(deps): update dependency bump-my-version to v0.33.0 (renovate[bot])
+- chore(deps): update dependency black to v24.10.0 (renovate[bot])
+- chore(deps): update dependency bandit to v1.8.3 (renovate[bot])

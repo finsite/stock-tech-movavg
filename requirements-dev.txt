@@ -14,7 +14,7 @@ flake8==6.1.0                # Traditional linter
 flake8-docstrings==1.7.0     # Enforce docstring conventions (PEP257)
 pylint==3.3.6                # Deeper code analysis
 mypy==1.15.0                  # Static type checking
-black==24.10.0                # Code formatter
+black==25.1.0                # Code formatter
 isort==5.13.2                # Import sorter
 
 # Modern replacement for flake8 + black + isort

@@ -10,7 +10,7 @@ pytest-mock==3.14.0          # Mocking/stubbing dependencies in tests
 # ======================
 # Linting and code quality
 # ======================
-flake8==6.1.0                # Traditional linter
+flake8==7.2.0                # Traditional linter
 flake8-docstrings==1.7.0     # Enforce docstring conventions (PEP257)
 pylint==3.3.6                # Deeper code analysis
 mypy==1.15.0                  # Static type checking

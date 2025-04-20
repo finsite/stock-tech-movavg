@@ -3,7 +3,7 @@
 # ======================
 pytest==7.4.4                # Unit and integration testing
 pytest-cov==6.1.1            # Coverage reporting
-pytest-benchmark==4.0.0      # Performance benchmarking
+pytest-benchmark==5.1.0      # Performance benchmarking
 pytest-html==4.1.1           # Optional: HTML test reports
 pytest-mock==3.14.0          # Mocking/stubbing dependencies in tests
 

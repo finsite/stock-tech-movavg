@@ -18,7 +18,7 @@ black==24.3.0                # Code formatter
 isort==5.13.2                # Import sorter
 
 # Modern replacement for flake8 + black + isort
-ruff==0.3.2                  # Fast all-in-one linter/formatter (CI-friendly)
+ruff==0.11.6                  # Fast all-in-one linter/formatter (CI-friendly)
 
 # ======================
 # Code complexity

@@ -1,5 +1,5 @@
 ## Changelog
 
-- Merge pull request #37 from finsite/renovate/pytest-benchmark-5.x (Mark)
+- Merge pull request #39 from finsite/renovate/sphinx-8.x (Mark)
 - bump: patch version + changelog [skip ci] (github-actions[bot])
-- chore(deps): update dependency pytest-benchmark to v5 (renovate[bot])
+- chore(deps): update dependency sphinx to v8 (renovate[bot])

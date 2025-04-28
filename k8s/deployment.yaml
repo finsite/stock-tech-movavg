@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,10 +20,10 @@ spec:
             - containerPort: 8000
           env:
             - name: ENVIRONMENT
-              value: "dev"
+              value: dev
             - name: LOG_LEVEL
-              value: "DEBUG"
+              value: DEBUG
             - name: RABBITMQ_HOST
-              value: "stock-tech-movag-rabbitmq.dev.internal"
+              value: stock-tech-movag-rabbitmq.dev.internal
             - name: RABBITMQ_QUEUE
-              value: "stock-tech-movag_dev_queue"
+              value: stock-tech-movag_dev_queue

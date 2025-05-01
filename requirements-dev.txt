@@ -148,7 +148,7 @@ pycodestyle==2.13.0
     # via flake8
 pycparser==2.22
     # via cffi
-pydantic==2.9.2
+pydantic==2.11.4
     # via
     #   safety
     #   safety-schemas

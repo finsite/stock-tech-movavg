@@ -16,6 +16,7 @@
 
 ## [0.1.40] - 2025-04-27
 
-- Merge branch 'main' of https://github.com/finsite/stock-tech-movavg (Mark Quinn)
+- Merge branch 'main' of https://github.com/finsite/stock-tech-movavg (Mark
+  Quinn)
 - Fixing workflows and dependencies (Mark Quinn)
 - bump: patch version + changelog [skip ci] (github-actions[bot])

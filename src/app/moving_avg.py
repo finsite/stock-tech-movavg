@@ -1,4 +1,5 @@
-"""Module for calculating different types of moving averages.
+"""
+Module for calculating different types of moving averages.
 
 This module contains functions to compute moving averages from a given pandas Series.
 Supported methods:
@@ -24,7 +25,8 @@ def calculate_moving_average(
     window: int,
     method: Literal["sma", "ema", "wma", "hma"] = "sma",
 ) -> pd.Series:
-    """Compute a moving average of the specified type.
+    """
+    Compute a moving average of the specified type.
 
     Args:
     ----
@@ -39,7 +41,6 @@ def calculate_moving_average(
     Raises:
     ------
         ValueError: If the method is not one of the supported types.
-
     """
     logger.info(f"Calculating {method.upper()} with window={window}")
 

@@ -12,7 +12,7 @@ botocore==1.38.7
     #   s3transfer
 certifi==2025.4.26
     # via requests
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via requests
 colorama==0.4.6
     # via loguru
@@ -36,7 +36,7 @@ loguru==0.7.3
     # via -r requirements.in
 matplotlib==3.10.1
     # via -r requirements.in
-numpy==1.26.4
+numpy==2.2.5
     # via
     #   -r requirements.in
     #   contourpy

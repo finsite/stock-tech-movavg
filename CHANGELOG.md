@@ -14,7 +14,7 @@
 
 - (Placeholder for new changes)
 
-## [0.1.40] - 2025-04-27
+## [0.1.45] - 2025-04-27
 
 - Merge branch 'main' of https://github.com/finsite/stock-tech-movavg (Mark
   Quinn)

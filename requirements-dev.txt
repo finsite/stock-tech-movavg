@@ -14,7 +14,7 @@ bandit==1.8.3
     # via -r requirements-dev.in
 black==24.10.0
     # via -r requirements-dev.in
-boto3==1.38.7
+boto3==1.38.8
     # via -r D:\git\stock-tech-movavg\requirements.in
 botocore==1.38.7
     # via

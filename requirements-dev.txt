@@ -12,7 +12,7 @@ authlib==1.5.2
     # via safety
 bandit==1.8.3
     # via -r requirements-dev.in
-black==24.10.0
+black==25.1.0
     # via -r requirements-dev.in
 boto3==1.38.7
     # via -r D:\git\stock-tech-movavg\requirements.in

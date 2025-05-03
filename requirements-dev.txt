@@ -220,7 +220,7 @@ tqdm==4.67.1
     # via nltk
 typer==0.15.3
     # via safety
-types-setuptools==80.0.0.20250429
+types-setuptools==80.1.0.20250503
     # via requirements-parser
 typing-extensions==4.13.2
     # via

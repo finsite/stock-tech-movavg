@@ -8,6 +8,7 @@ results to the output handler.
 import json
 import os
 import time
+from typing import cast
 
 import boto3
 import pika
@@ -15,7 +16,7 @@ from botocore.exceptions import BotoCoreError, NoCredentialsError
 
 from app.logger import setup_logger
 from app.output_handler import send_to_output
-from app.processor import process_stock_data
+from app.processor import MovingAvgMethod, process_stock_data
 
 logger = setup_logger(__name__)
 
@@ -80,7 +81,7 @@ def consume_rabbitmq() -> None:
             df = process_stock_data(
                 stock_data=message["data"],
                 window_size=WINDOW_SIZE,
-                ma_method=MA_TYPE,
+                ma_method=cast(MovingAvgMethod, MA_TYPE),
             )
             result = {
                 "symbol": message.get("symbol"),
@@ -136,7 +137,7 @@ def consume_sqs() -> None:
                     df = process_stock_data(
                         stock_data=body["data"],
                         window_size=WINDOW_SIZE,
-                        ma_method=MA_TYPE,
+                        ma_method=cast(MovingAvgMethod, MA_TYPE),
                     )
                     result = {
                         "symbol": body.get("symbol"),

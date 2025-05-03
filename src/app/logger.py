@@ -1,11 +1,3 @@
-"""
-Module to handle logging.
-
-This module provides a function to set up a logger with the specified name. The logger
-will be configured to output messages to the console with a specific format and log
-level.
-"""
-
 import logging
 
 
@@ -23,11 +15,9 @@ def setup_logger(name: str = "app") -> logging.Logger:
     The log level will be set to INFO.
 
     Args:
-    ----
         name (str): The name of the logger. Defaults to "app".
 
     Returns:
-    -------
         logging.Logger: The configured logger.
     """
     logger: logging.Logger = logging.getLogger(name)

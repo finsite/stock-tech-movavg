@@ -25,6 +25,10 @@ def main() -> None:
     This function starts the service to consume stock data messages from the configured
     queue, process the data using the selected moving average technique, and publish the
     results.
+
+    Args:
+
+    Returns:
     """
     logger.info("Starting Moving Average Analysis Service...")
     consume_messages()

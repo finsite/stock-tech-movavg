@@ -24,12 +24,15 @@ def process_stock_data(
     Apply the specified moving average method to stock data and output the result.
 
     Args:
-        stock_data (pd.DataFrame): DataFrame containing 'Close' and optionally 'Volume'.
-        window_size (int): Window size for the moving average.
-        ma_method (MovingAvgMethod): Type of moving average.
+      stock_data(pd.DataFrame): DataFrame containing 'Close' and optionally 'Volume'.
+      window_size(int): Window size for the moving average.
+      ma_method(MovingAvgMethod): Type of moving average.
+      stock_data: pd.DataFrame:
+      window_size: int:
+      ma_method: MovingAvgMethod:  (Default value = "sma")
 
     Returns:
-        pd.DataFrame: DataFrame with an additional column for the moving average.
+      pd.DataFrame: DataFrame with an additional column for the moving average.
     """
     try:
         if stock_data.empty:

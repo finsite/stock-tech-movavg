@@ -22,7 +22,7 @@ cycler==0.12.1
     # via matplotlib
 fonttools==4.57.0
     # via matplotlib
-hvac==1.2.1
+hvac==2.3.0
     # via -r requirements.in
 idna==3.10
     # via requests

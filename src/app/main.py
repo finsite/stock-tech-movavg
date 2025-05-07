@@ -1,5 +1,4 @@
-"""
-Main entry point for Stock-Tech-MovAvg.
+"""Main entry point for Stock-Tech-MovAvg.
 
 This script consumes stock data from the queue, applies moving average analysis, and
 publishes the results back to the output queue.
@@ -19,8 +18,7 @@ logger = setup_logger(__name__)
 
 
 def main() -> None:
-    """
-    Entry point of the Moving Average Analysis Service.
+    """Entry point of the Moving Average Analysis Service.
 
     This function starts the service to consume stock data messages from the configured
     queue, process the data using the selected moving average technique, and publish the
@@ -29,6 +27,7 @@ def main() -> None:
     Args:
 
     Returns:
+
     """
     logger.info("Starting Moving Average Analysis Service...")
     consume_messages()

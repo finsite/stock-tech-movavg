@@ -1,6 +1,5 @@
 # Changelog
 
-
 - Merge branch 'main' of https://github.com/finsite/stock-tech-movavg (Mark
   Quinn)
 - Fixing workflows and dependencies (Mark Quinn)

@@ -20,8 +20,7 @@ MovingAvgMethod = Literal["sma", "ema", "wma", "hma", "vwap", "dema", "tema", "k
 def process_stock_data(
     stock_data: pd.DataFrame, window_size: int, ma_method: MovingAvgMethod = "sma"
 ) -> pd.DataFrame:
-    """
-    Apply the specified moving average method to stock data and output the result.
+    """Apply the specified moving average method to stock data and output the result.
 
     Args:
       stock_data(pd.DataFrame): DataFrame containing 'Close' and optionally 'Volume'.
@@ -30,9 +29,13 @@ def process_stock_data(
       stock_data: pd.DataFrame:
       window_size: int:
       ma_method: MovingAvgMethod:  (Default value = "sma")
+      stock_data: pd.DataFrame:
+      window_size: int:
+      ma_method: MovingAvgMethod:  (Default value = "sma")
 
     Returns:
       pd.DataFrame: DataFrame with an additional column for the moving average.
+
     """
     try:
         if stock_data.empty:

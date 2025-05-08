@@ -1,7 +1,7 @@
 """Main entry point for Stock-Tech-MovAvg.
 
-This script consumes stock data from the queue, applies moving average analysis, and
-publishes the results back to the output queue.
+This script consumes stock data from the queue, applies moving average
+analysis, and publishes the results back to the output queue.
 """
 
 import os
@@ -27,7 +27,6 @@ def main() -> None:
     Args:
 
     Returns:
-
     """
     logger.info("Starting Moving Average Analysis Service...")
     consume_messages()

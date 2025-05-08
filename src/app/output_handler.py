@@ -1,7 +1,7 @@
 """Module to handle output of analysis results to a chosen output target.
 
-This implementation logs the result, prints it to stdout, and sends the data to RabbitMQ
-or SQS.
+This implementation logs the result, prints it to stdout, and sends the
+data to RabbitMQ or SQS.
 """
 
 import json
@@ -25,9 +25,9 @@ def send_to_output(data: dict[str, Any]) -> None:
       data: dict[str:
       Any]:
       data: dict[str:
+      data: dict[str:
 
     Returns:
-
     """
     try:
         formatted_output: str = json.dumps(data, indent=4)

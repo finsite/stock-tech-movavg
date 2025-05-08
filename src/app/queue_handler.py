@@ -1,7 +1,7 @@
 """Handles message queue consumption for RabbitMQ and SQS.
 
-This module receives stock data, applies moving average analysis, and sends processed
-results to the output handler.
+This module receives stock data, applies moving average analysis, and
+sends processed results to the output handler.
 """
 
 import json
@@ -61,7 +61,8 @@ def connect_to_rabbitmq() -> pika.BlockingConnection:
 
 
 def consume_rabbitmq() -> None:
-    """Consumes messages from RabbitMQ and processes them with moving average analysis."""
+    """Consumes messages from RabbitMQ and processes them with moving average
+    analysis."""
     connection = connect_to_rabbitmq()
     channel = connection.channel()
 
@@ -72,12 +73,15 @@ def consume_rabbitmq() -> None:
     )
 
     def callback(ch, method, properties, body: bytes) -> None:
-        """Args:
-          ch:
-          method:
-          properties:
+        """
+
+        Args:
+          ch: 
+          method: 
+          properties: 
           body: bytes:
           body: bytes:
+          body: bytes: 
 
         Returns:
 
@@ -121,7 +125,8 @@ def consume_rabbitmq() -> None:
 
 
 def consume_sqs() -> None:
-    """Consumes messages from AWS SQS and processes them with moving average analysis."""
+    """Consumes messages from AWS SQS and processes them with moving average
+    analysis."""
     if not sqs_client or not SQS_QUEUE_URL:
         logger.error("SQS not initialized or missing queue URL.")
         return

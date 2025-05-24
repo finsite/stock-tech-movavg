@@ -25,8 +25,11 @@ def main() -> None:
     results.
 
     Args:
+    ----
 
     Returns:
+    -------
+
     """
     logger.info("Starting Moving Average Analysis Service...")
     consume_messages()

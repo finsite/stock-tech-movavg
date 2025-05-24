@@ -22,6 +22,7 @@ def calculate_moving_average(
     """Compute a moving average of the specified type.
 
     Args:
+    ----
       data: Series:
       window: int:
       method: MovingAverageMethod:  (Default value = "sma")
@@ -36,6 +37,8 @@ def calculate_moving_average(
       volume: Series | None:  (Default value = None)
 
     Returns:
+    -------
+
     """
     logger.info(f"Calculating {method.upper()} with window={window}")
 
@@ -51,14 +54,14 @@ def calculate_moving_average(
         weights = np.arange(1, window + 1)
 
         def weighted_avg(x: np.ndarray) -> float:
-            """
-
-            Args:
+            """Args:
+            ----
               x: np.ndarray:
               x: np.ndarray:
-              x: np.ndarray: 
+              x: np.ndarray:
 
-            Returns:
+            Returns
+            -------
 
             """
             return float(np.dot(x, weights) / weights.sum())

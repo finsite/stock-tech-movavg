@@ -42,11 +42,13 @@ def process_stock_data(
     -------
       pd.DataFrame: DataFrame with an additional column for the moving average.
 
+    :param stock_data: pd.DataFrame:
+    :param window_size: int:
+    :param ma_method: MovingAvgMethod:  (Default value = "sma")
     :param stock_data: pd.DataFrame: 
     :param window_size: int: 
     :param ma_method: MovingAvgMethod:  (Default value = "sma")
 
-    
     """
     try:
         if stock_data.empty:

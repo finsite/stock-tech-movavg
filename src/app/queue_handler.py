@@ -64,6 +64,11 @@ def consume_rabbitmq() -> None:
     """Consumes messages from RabbitMQ and processes them with moving average
     analysis.
 
+    Parameters
+    ----------
+
+    Returns
+    -------
 
     """
     connection = connect_to_rabbitmq()
@@ -85,10 +90,21 @@ def consume_rabbitmq() -> None:
           body: bytes:
           body: bytes:
 
-        :param ch: param method:
-        :param properties: param body: bytes:
-        :param method: param body: bytes:
-        :param body: bytes: 
+        Parameters
+        ----------
+        ch :
+            param method:
+        properties :
+            param body: bytes:
+        method :
+            param body: bytes:
+        body :
+            bytes:
+        body: bytes :
+
+
+        Returns
+        -------
 
         """
         try:
@@ -133,6 +149,11 @@ def consume_sqs() -> None:
     """Consumes messages from AWS SQS and processes them with moving average
     analysis.
 
+    Parameters
+    ----------
+
+    Returns
+    -------
 
     """
     if not sqs_client or not SQS_QUEUE_URL:

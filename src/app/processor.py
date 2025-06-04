@@ -22,7 +22,7 @@ def process_stock_data(
 ) -> pd.DataFrame:
     """Apply the specified moving average method to stock data and output the
     result.
-    
+
     Args:
     ----
       stock_data(pd.DataFrame): DataFrame containing 'Close' and optionally 'Volume'.
@@ -37,20 +37,40 @@ def process_stock_data(
       stock_data: pd.DataFrame:
       window_size: int:
       ma_method: MovingAvgMethod:  (Default value = "sma")
-    
+
     Returns:
     -------
       pd.DataFrame: DataFrame with an additional column for the moving average.
 
-    :param stock_data: pd.DataFrame:
-    :param window_size: int:
-    :param ma_method: MovingAvgMethod:  (Default value = "sma")
-    :param stock_data: pd.DataFrame:
-    :param window_size: int:
-    :param ma_method: MovingAvgMethod:  (Default value = "sma")
-    :param stock_data: pd.DataFrame: 
-    :param window_size: int: 
-    :param ma_method: MovingAvgMethod:  (Default value = "sma")
+    Parameters
+    ----------
+    stock_data :
+        pd.DataFrame:
+    window_size :
+        int:
+    ma_method :
+        MovingAvgMethod:  (Default value = "sma")
+    stock_data :
+        pd.DataFrame:
+    window_size :
+        int:
+    ma_method :
+        MovingAvgMethod:  (Default value = "sma")
+    stock_data :
+        pd.DataFrame:
+    window_size :
+        int:
+    ma_method :
+        MovingAvgMethod:  (Default value = "sma")
+    stock_data: pd.DataFrame :
+
+    window_size: int :
+
+    ma_method: MovingAvgMethod :
+         (Default value = "sma")
+
+    Returns
+    -------
 
     """
     try:

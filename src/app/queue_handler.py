@@ -63,6 +63,8 @@ def connect_to_rabbitmq() -> pika.BlockingConnection:
 def consume_rabbitmq() -> None:
     """Consumes messages from RabbitMQ and processes them with moving average
     analysis.
+
+
     """
     connection = connect_to_rabbitmq()
     channel = connection.channel()
@@ -83,9 +85,12 @@ def consume_rabbitmq() -> None:
           body: bytes:
           body: bytes:
 
-        Returns
-        -------
+        :param ch: 
+        :param method: 
+        :param properties: 
+        :param body: bytes: 
 
+        
         """
         try:
             message = json.loads(body)
@@ -128,6 +133,8 @@ def consume_rabbitmq() -> None:
 def consume_sqs() -> None:
     """Consumes messages from AWS SQS and processes them with moving average
     analysis.
+
+
     """
     if not sqs_client or not SQS_QUEUE_URL:
         logger.error("SQS not initialized or missing queue URL.")

@@ -19,17 +19,19 @@ logger = setup_logger(__name__)
 
 def main() -> None:
     """Entry point of the Moving Average Analysis Service.
-
+    
     This function starts the service to consume stock data messages from the configured
     queue, process the data using the selected moving average technique, and publish the
     results.
-
+    
     Args:
     ----
-
+    
     Returns:
     -------
 
+
+    
     """
     logger.info("Starting Moving Average Analysis Service...")
     consume_messages()

@@ -64,13 +64,8 @@ def consume_rabbitmq() -> None:
     """Consumes messages from RabbitMQ and processes them with moving average
     analysis.
 
-    Parameters
-    ----------
 
-    Returns
-    -------
-
-
+    
     """
     connection = connect_to_rabbitmq()
     channel = connection.channel()
@@ -91,25 +86,17 @@ def consume_rabbitmq() -> None:
           body: bytes:
           body: bytes:
 
-        Parameters
-        ----------
-        ch :
-            param method:
-        properties :
-            param body: bytes:
-        method :
-            param body: bytes:
-        body :
-            bytes:
-        body : bytes :
+        :param ch: param method:
+        :param properties: param body: bytes:
+        :param method: param body: bytes:
+        :param body: bytes:
+        :param body: 
+        :type body: bytes :
+        :param body: 
+        :type body: bytes :
+        :param body: bytes: 
 
-        body: bytes :
-
-
-        Returns
-        -------
-
-
+        
         """
         try:
             message = json.loads(body)
@@ -153,13 +140,8 @@ def consume_sqs() -> None:
     """Consumes messages from AWS SQS and processes them with moving average
     analysis.
 
-    Parameters
-    ----------
 
-    Returns
-    -------
-
-
+    
     """
     if not sqs_client or not SQS_QUEUE_URL:
         logger.error("SQS not initialized or missing queue URL.")

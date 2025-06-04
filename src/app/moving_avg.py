@@ -20,7 +20,7 @@ def calculate_moving_average(
     volume: Series | None = None,
 ) -> Series:
     """Compute a moving average of the specified type.
-
+    
     Args:
     ----
       data: Series:
@@ -36,53 +36,40 @@ def calculate_moving_average(
       method: MovingAverageMethod:  (Default value = "sma")
       volume: Series | None:  (Default value = None)
 
-    Parameters
-    ----------
-    data :
-        Series:
-    window :
-        int:
-    method :
-        MovingAverageMethod:  (Default value = "sma")
-    volume :
-        Series | None:  (Default value = None)
-    data :
-        Series:
-    window :
-        int:
-    method :
-        MovingAverageMethod:  (Default value = "sma")
-    volume :
-        Series | None:  (Default value = None)
-    data :
-        Series:
-    window :
-        int:
-    method :
-        MovingAverageMethod:  (Default value = "sma")
-    volume :
-        Series | None:  (Default value = None)
-    data : Series :
+    :param data: Series:
+    :param window: int:
+    :param method: MovingAverageMethod:  (Default value = "sma")
+    :param volume: Series | None:  (Default value = None)
+    :param data: Series:
+    :param window: int:
+    :param method: MovingAverageMethod:  (Default value = "sma")
+    :param volume: Series | None:  (Default value = None)
+    :param data: Series:
+    :param window: int:
+    :param method: MovingAverageMethod:  (Default value = "sma")
+    :param volume: Series | None:  (Default value = None)
+    :param data: 
+    :type data: Series :
+    :param window: 
+    :type window: int :
+    :param method: (Default value = "sma")
+    :type method: MovingAverageMethod :
+    :param volume: (Default value = None)
+    :type volume: Series | None :
+    :param data: 
+    :type data: Series :
+    :param window: 
+    :type window: int :
+    :param method: (Default value = "sma")
+    :type method: MovingAverageMethod :
+    :param volume: (Default value = None)
+    :type volume: Series | None :
+    :param data: Series: 
+    :param window: int: 
+    :param method: MovingAverageMethod:  (Default value = "sma")
+    :param volume: Series | None:  (Default value = None)
 
-    window : int :
-
-    method : MovingAverageMethod :
-        (Default value = "sma")
-    volume : Series | None :
-        (Default value = None)
-    data: Series :
-
-    window: int :
-
-    method: MovingAverageMethod :
-         (Default value = "sma")
-    volume: Series | None :
-         (Default value = None)
-
-    Returns
-    -------
-
-
+    
     """
     logger.info(f"Calculating {method.upper()} with window={window}")
 
@@ -104,23 +91,16 @@ def calculate_moving_average(
               x: np.ndarray:
               x: np.ndarray:
 
-            Parameters
-            ----------
-            x :
-                np.ndarray:
-            x :
-                np.ndarray:
-            x :
-                np.ndarray:
-            x : np.ndarray :
+            :param x: np.ndarray:
+            :param x: np.ndarray:
+            :param x: np.ndarray:
+            :param x: 
+            :type x: np.ndarray :
+            :param x: 
+            :type x: np.ndarray :
+            :param x: np.ndarray: 
 
-            x: np.ndarray :
-
-
-            Returns
-            -------
-
-
+            
             """
             return float(np.dot(x, weights) / weights.sum())
 

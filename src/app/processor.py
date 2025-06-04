@@ -45,6 +45,9 @@ def process_stock_data(
     :param stock_data: pd.DataFrame:
     :param window_size: int:
     :param ma_method: MovingAvgMethod:  (Default value = "sma")
+    :param stock_data: pd.DataFrame:
+    :param window_size: int:
+    :param ma_method: MovingAvgMethod:  (Default value = "sma")
     :param stock_data: pd.DataFrame: 
     :param window_size: int: 
     :param ma_method: MovingAvgMethod:  (Default value = "sma")

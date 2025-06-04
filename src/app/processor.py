@@ -38,10 +38,6 @@ def process_stock_data(
       window_size: int:
       ma_method: MovingAvgMethod:  (Default value = "sma")
 
-    Returns:
-    -------
-      pd.DataFrame: DataFrame with an additional column for the moving average.
-
     Parameters
     ----------
     stock_data :
@@ -62,6 +58,12 @@ def process_stock_data(
         int:
     ma_method :
         MovingAvgMethod:  (Default value = "sma")
+    stock_data : pd.DataFrame :
+
+    window_size : int :
+
+    ma_method : MovingAvgMethod :
+        (Default value = "sma")
     stock_data: pd.DataFrame :
 
     window_size: int :
@@ -71,6 +73,7 @@ def process_stock_data(
 
     Returns
     -------
+
 
     """
     try:

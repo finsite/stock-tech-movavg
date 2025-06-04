@@ -70,6 +70,7 @@ def consume_rabbitmq() -> None:
     Returns
     -------
 
+
     """
     connection = connect_to_rabbitmq()
     channel = connection.channel()
@@ -100,11 +101,14 @@ def consume_rabbitmq() -> None:
             param body: bytes:
         body :
             bytes:
+        body : bytes :
+
         body: bytes :
 
 
         Returns
         -------
+
 
         """
         try:
@@ -154,6 +158,7 @@ def consume_sqs() -> None:
 
     Returns
     -------
+
 
     """
     if not sqs_client or not SQS_QUEUE_URL:

@@ -20,7 +20,7 @@ def calculate_moving_average(
     volume: Series | None = None,
 ) -> Series:
     """Compute a moving average of the specified type.
-    
+
     Args:
     ----
       data: Series:
@@ -72,8 +72,8 @@ def calculate_moving_average(
     :param window: int:
     :param method: MovingAverageMethod:  (Default value = "sma")
     :param volume: Series | None:  (Default value = None)
-    :param data: Series: 
-    :param window: int: 
+    :param data: Series:
+    :param window: int:
     :param method: MovingAverageMethod:  (Default value = "sma")
     :param volume: Series | None:  (Default value = None)
 
@@ -106,7 +106,7 @@ def calculate_moving_average(
             :param x: np.ndarray:
             :param x: np.ndarray:
             :param x: np.ndarray:
-            :param x: np.ndarray: 
+            :param x: np.ndarray:
 
             """
             return float(np.dot(x, weights) / weights.sum())

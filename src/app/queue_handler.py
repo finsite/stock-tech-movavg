@@ -65,7 +65,6 @@ def consume_rabbitmq() -> None:
     analysis.
 
 
-    
     """
     connection = connect_to_rabbitmq()
     channel = connection.channel()
@@ -90,13 +89,11 @@ def consume_rabbitmq() -> None:
         :param properties: param body: bytes:
         :param method: param body: bytes:
         :param body: bytes:
-        :param body: 
-        :type body: bytes :
-        :param body: 
-        :type body: bytes :
+        :param body: type body: bytes :
+        :param body: type body: bytes :
+        :param body: bytes:
         :param body: bytes: 
 
-        
         """
         try:
             message = json.loads(body)
@@ -141,7 +138,6 @@ def consume_sqs() -> None:
     analysis.
 
 
-    
     """
     if not sqs_client or not SQS_QUEUE_URL:
         logger.error("SQS not initialized or missing queue URL.")

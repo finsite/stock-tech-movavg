@@ -47,23 +47,21 @@ def process_stock_data(
     :param stock_data: pd.DataFrame:
     :param window_size: int:
     :param ma_method: MovingAvgMethod:  (Default value = "sma")
-    :param stock_data: 
-    :type stock_data: pd.DataFrame :
-    :param window_size: 
-    :type window_size: int :
-    :param ma_method: (Default value = "sma")
+    :param stock_data: type stock_data: pd.DataFrame :
+    :param window_size: type window_size: int :
+    :param ma_method: Default value = "sma")
     :type ma_method: MovingAvgMethod :
-    :param stock_data: 
-    :type stock_data: pd.DataFrame :
-    :param window_size: 
-    :type window_size: int :
-    :param ma_method: (Default value = "sma")
+    :param stock_data: type stock_data: pd.DataFrame :
+    :param window_size: type window_size: int :
+    :param ma_method: Default value = "sma")
     :type ma_method: MovingAvgMethod :
+    :param stock_data: pd.DataFrame:
+    :param window_size: int:
+    :param ma_method: MovingAvgMethod:  (Default value = "sma")
     :param stock_data: pd.DataFrame: 
     :param window_size: int: 
     :param ma_method: MovingAvgMethod:  (Default value = "sma")
 
-    
     """
     try:
         if stock_data.empty:

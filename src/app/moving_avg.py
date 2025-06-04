@@ -48,28 +48,27 @@ def calculate_moving_average(
     :param window: int:
     :param method: MovingAverageMethod:  (Default value = "sma")
     :param volume: Series | None:  (Default value = None)
-    :param data: 
-    :type data: Series :
-    :param window: 
-    :type window: int :
-    :param method: (Default value = "sma")
+    :param data: type data: Series :
+    :param window: type window: int :
+    :param method: Default value = "sma")
     :type method: MovingAverageMethod :
-    :param volume: (Default value = None)
+    :param volume: Default value = None)
     :type volume: Series | None :
-    :param data: 
-    :type data: Series :
-    :param window: 
-    :type window: int :
-    :param method: (Default value = "sma")
+    :param data: type data: Series :
+    :param window: type window: int :
+    :param method: Default value = "sma")
     :type method: MovingAverageMethod :
-    :param volume: (Default value = None)
+    :param volume: Default value = None)
     :type volume: Series | None :
+    :param data: Series:
+    :param window: int:
+    :param method: MovingAverageMethod:  (Default value = "sma")
+    :param volume: Series | None:  (Default value = None)
     :param data: Series: 
     :param window: int: 
     :param method: MovingAverageMethod:  (Default value = "sma")
     :param volume: Series | None:  (Default value = None)
 
-    
     """
     logger.info(f"Calculating {method.upper()} with window={window}")
 
@@ -94,13 +93,11 @@ def calculate_moving_average(
             :param x: np.ndarray:
             :param x: np.ndarray:
             :param x: np.ndarray:
-            :param x: 
-            :type x: np.ndarray :
-            :param x: 
-            :type x: np.ndarray :
+            :param x: type x: np.ndarray :
+            :param x: type x: np.ndarray :
+            :param x: np.ndarray:
             :param x: np.ndarray: 
 
-            
             """
             return float(np.dot(x, weights) / weights.sum())
 

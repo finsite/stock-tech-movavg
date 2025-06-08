@@ -4,7 +4,7 @@ from typing import Literal, cast
 
 import pandas as pd
 
-from app.logger import setup_logger
+from app.utils.setup_logger import setup_logger
 from app.moving_avg import calculate_moving_average
 from app.output_handler import send_to_output
 

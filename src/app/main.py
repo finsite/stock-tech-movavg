@@ -10,7 +10,7 @@ import sys
 # Ensure src/ is in path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from app.logger import setup_logger
+from app.utils.setup_logger import setup_logger
 from app.queue_handler import consume_messages
 
 # Initialize logger

@@ -109,7 +109,7 @@ def process_stock_data(
         symbol = stock_data["symbol"].iloc[0] if "symbol" in stock_data.columns else "N/A"
         logger.info(f"Calculated {column_name} for symbol: {symbol}")
 
-        send_to_output(
+        send_to_output([
             {
                 "symbol": symbol,
                 "analysis_type": "movavg",
@@ -117,7 +117,7 @@ def process_stock_data(
                 "window": window_size,
                 "result": stock_data.tail(1).to_dict(orient="records")[0],
             }
-        )
+        ])
 
         return stock_data
 

@@ -1,37 +1,32 @@
-"""Main entry point for Stock-Tech-MovAvg.
+"""Main entry point for the service.
 
-This script consumes stock data from the queue, applies moving average
-analysis, and publishes the results back to the output queue.
+This script initializes logging, loads the queue consumer,
+and begins consuming data using the configured processing callback.
 """
 
 import os
 import sys
 
-# Ensure src/ is in path
+# Add 'src/' to Python's module search path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.utils.setup_logger import setup_logger
 from app.queue_handler import consume_messages
+from app.output_handler import send_to_output
 
-# Initialize logger
+# Initialize the module-level logger
 logger = setup_logger(__name__)
 
 
 def main() -> None:
-    """Entry point of the Moving Average Analysis Service.
+    """Starts the data processing service.
 
-    This function starts the service to consume stock data messages from the configured
-    queue, process the data using the selected moving average technique, and publish the
-    results.
-
-    Args:
-    ----
-
-
-
+    This function initializes the service by calling the queue consumer,
+    which will begin listening to RabbitMQ or SQS and processing data
+    using the `send_to_output` callback.
     """
-    logger.info("Starting Moving Average Analysis Service...")
-    consume_messages()
+    logger.info("🚀 Starting processing service...")
+    consume_messages(send_to_output)
 
 
 if __name__ == "__main__":

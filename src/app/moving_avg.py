@@ -10,7 +10,9 @@ from app.utils.setup_logger import setup_logger
 
 logger = setup_logger(__name__)
 
-MovingAverageMethod = Literal["sma", "ema", "wma", "hma", "vwap", "dema", "tema", "kama", "tma"]
+MovingAverageMethod = Literal[
+    "sma", "ema", "wma", "hma", "vwap", "dema", "tema", "kama", "tma"
+]
 
 
 def calculate_moving_average(
@@ -157,7 +159,9 @@ def calculate_moving_average(
         kama.iloc[:window] = data.iloc[:window]
 
         for i in range(window, len(data)):
-            kama.iloc[i] = kama.iloc[i - 1] + sc.iloc[i] * (data.iloc[i] - kama.iloc[i - 1])
+            kama.iloc[i] = kama.iloc[i - 1] + sc.iloc[i] * (
+                data.iloc[i] - kama.iloc[i - 1]
+            )
 
         return pd.Series(kama, index=data.index)
 

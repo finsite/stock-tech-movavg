@@ -4,9 +4,9 @@ from typing import Literal, cast
 
 import pandas as pd
 
-from app.utils.setup_logger import setup_logger
 from app.moving_avg import calculate_moving_average
 from app.output_handler import send_to_output
+from app.utils.setup_logger import setup_logger
 
 # Initialize logger
 logger = setup_logger(__name__)
@@ -109,15 +109,17 @@ def process_stock_data(
         symbol = stock_data["symbol"].iloc[0] if "symbol" in stock_data.columns else "N/A"
         logger.info(f"Calculated {column_name} for symbol: {symbol}")
 
-        send_to_output([
-            {
-                "symbol": symbol,
-                "analysis_type": "movavg",
-                "method": ma_method,
-                "window": window_size,
-                "result": stock_data.tail(1).to_dict(orient="records")[0],
-            }
-        ])
+        send_to_output(
+            [
+                {
+                    "symbol": symbol,
+                    "analysis_type": "movavg",
+                    "method": ma_method,
+                    "window": window_size,
+                    "result": stock_data.tail(1).to_dict(orient="records")[0],
+                }
+            ]
+        )
 
         return stock_data
 

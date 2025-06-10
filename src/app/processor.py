@@ -14,9 +14,7 @@ logger = setup_logger(__name__)
 # Supported moving average methods
 VALID_METHODS = {"sma", "ema", "wma", "hma", "vwap", "dema", "tema", "kama", "tma"}
 
-MovingAvgMethod = Literal[
-    "sma", "ema", "wma", "hma", "vwap", "dema", "tema", "kama", "tma"
-]
+MovingAvgMethod = Literal["sma", "ema", "wma", "hma", "vwap", "dema", "tema", "kama", "tma"]
 
 
 def process_stock_data(
@@ -93,16 +91,12 @@ def process_stock_data(
             return pd.DataFrame()
 
         if window_size > len(stock_data):
-            logger.warning(
-                "Window size is larger than dataset length. Adjusting window."
-            )
+            logger.warning("Window size is larger than dataset length. Adjusting window.")
             window_size = len(stock_data)
 
         column_name = f"{ma_method.upper()}_{window_size}"
         close_series = cast(pd.Series, stock_data["Close"])
-        volume_series = (
-            cast(pd.Series, stock_data["Volume"]) if ma_method == "vwap" else None
-        )
+        volume_series = cast(pd.Series, stock_data["Volume"]) if ma_method == "vwap" else None
 
         ma_series = calculate_moving_average(
             data=close_series,
@@ -112,9 +106,7 @@ def process_stock_data(
         )
         stock_data[column_name] = ma_series
 
-        symbol = (
-            stock_data["symbol"].iloc[0] if "symbol" in stock_data.columns else "N/A"
-        )
+        symbol = stock_data["symbol"].iloc[0] if "symbol" in stock_data.columns else "N/A"
         logger.info(f"Calculated {column_name} for symbol: {symbol}")
 
         send_to_output(

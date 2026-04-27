@@ -43,7 +43,7 @@ python-json-logger==3.3.0
     # via -r requirements.in
 pytz==2025.2
     # via pandas
-requests==2.32.4
+requests==2.33.0
     # via
     #   -r requirements.in
     #   hvac
